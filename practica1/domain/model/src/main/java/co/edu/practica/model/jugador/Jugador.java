@@ -14,5 +14,7 @@ public class Jugador {
     private String edad;
     private String email;
     private String nivel;
+    private String nickname;
+    private String modalidad;
     private List<VideoJuego> videoJuegos;
 }

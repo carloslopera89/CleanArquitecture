@@ -1,17 +1,19 @@
-package co.edu.practica.model.videojuego;
+package co.edu.practica.driveradaptervideojuego;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table("videojuego")
-public class VideoJuego {
+@Table("VIDEOJUEGO")
+public class VideoJuegoModelDB {
 
-   // @Id
+   @Id
     private Integer id;
     private String nombre;
     private String descripcion;

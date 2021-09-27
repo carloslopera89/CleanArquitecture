@@ -1,20 +1,34 @@
 package co.edu.practica.api;
+import co.edu.practica.model.videojuego.VideoJuego;
+import co.edu.practica.usecase.crearvideojuego.VideojuegoUseCase;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/videojuego", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 public class ApiRest {
-//    private final MyUseCase useCase;
+
+    @Autowired
+   private final VideojuegoUseCase useCaseVideoJuego;
 
 
-    @GetMapping(path = "/path")
-    public String commandName() {
+    @GetMapping
+    public List<VideoJuego> consultarVideoJuegos() {
 //      return useCase.doAction();
-        return "Hello World";
+        return  useCaseVideoJuego.consultarVideoJuegos();
+    }
+
+    @PostMapping
+    public VideoJuego guardarVideoJuego(@RequestBody VideoJuego videoJuego){
+
+        return useCaseVideoJuego.crearVideoJuego(videoJuego);
     }
 }

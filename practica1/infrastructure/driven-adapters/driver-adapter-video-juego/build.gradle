@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':model')
+    implementation 'org.springframework:spring-context'
+    implementation(libs.mysql)
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
+}

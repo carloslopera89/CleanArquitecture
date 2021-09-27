@@ -8,3 +8,5 @@ project(':model').projectDir = file('./domain/model')
 project(':usecase').projectDir = file('./domain/usecase')
 include ':api-rest'
 project(':api-rest').projectDir = file('./infrastructure/entry-points/api-rest')
+include ':driver-adapter-video-juego'
+project(':driver-adapter-video-juego').projectDir = file('./infrastructure/driven-adapters/driver-adapter-video-juego')

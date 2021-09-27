@@ -1,14 +1,13 @@
 package co.edu.practica.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import co.edu.practica.model.videojuego.gateways.VideoJuegoRepository;
+import co.edu.practica.usecase.crearvideojuego.VideojuegoUseCase;
+import org.springframework.context.annotation.*;
 
 @Configuration
-@ComponentScan(basePackages = "co.edu.practica.usecase",
-        includeFilters = {
-                @ComponentScan.Filter(type = FilterType.REGEX, pattern = "^.+UseCase$")
-        },
-        useDefaultFilters = false)
 public class UseCasesConfig {
+        @Bean
+        public VideojuegoUseCase videojuegoUseCase(VideoJuegoRepository videoJuegoRepository){
+                 return new VideojuegoUseCase(videoJuegoRepository);
+        }
 }
